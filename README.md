@@ -1,5 +1,9 @@
 # AP PnP Tool
-this tool allows the programatic insertion of AP in DNAC.
+This tool programmatical inserts AP in DNAC for Plug and Play (PnP)
+
+It uses the new 2.3.2 API which allows an AP claim without a site assigment.
+
+Non-site based claim is important for use cases where DNA Center is not responsible for the configuration of the WLC
 
 ## Installing
 
