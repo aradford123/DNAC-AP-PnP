@@ -5,7 +5,27 @@ It uses the new 2.2.3 API which allows an AP claim without a site assigment.
 
 Non-site based claim is important for use cases where DNA Center is not responsible for the configuration of the WLC
 
-## Installing
+## Getting stated
+First (optional) step, create a vitualenv. This makes it less likely to clash with other python libraries in future.
+Once the virtualenv is created, need to activate it.
+```buildoutcfg
+python3 -m venv env3
+source env3/bin/activate
+```
+
+Next clone the code.
+
+```buildoutcfg
+git clone https://github.com/aradford123/DNAC-AP-PnP.git
+```
+
+Then install the  requirements (after upgrading pip). 
+Older versions of pip may not install the requirements correctly.
+```buildoutcfg
+pip install -U pip
+pip install -r requirements.txt
+```
+
 
 ## Template
 Template is required for the configuration.  Here is an example of a template with 
@@ -21,6 +41,8 @@ two parameters ($primaryWlcIP and $primaryWlcName).
 ```
 
 It is possible to have a fixed template with no parameters
+This template needs to be created in the Cisco DNA Center (tools->template editor)
+Make sure you both save and commit it.
 
 ## AP Configuration file
 The AP, the template and parameters need to be stored in a csv.  Some examples appear
