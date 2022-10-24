@@ -40,6 +40,23 @@ two parameters ($primaryWlcIP and $primaryWlcName).
 } 
 ```
 
+The full set of attributes are as follows:
+```
+{"primaryWlcIP":"PRI_WLC_IP",
+ "primaryWlcName":"PRI_WLC_NAME",
+ "secondaryWlcIP":"SEC_WLC_IP",
+ "secondaryWlcName":"SEC_WLC_NAME",
+ "tertiaryWlcIP":"TER_WLC_IP",
+ "tertiaryWlcName":"TER_WLC_NAME",
+ "policyTagName":"POLICY_TAG",
+ "RFTagName":"RF_TAG",
+ "siteTagName":"SITE_TAG",
+ "apGroup":"AP_GRP",
+ "apMode":"AP_MODE"
+ }
+
+```
+
 It is possible to have a fixed template with no parameters
 This template needs to be created in the Cisco DNA Center (tools->template editor)
 Make sure you both save and commit it.
