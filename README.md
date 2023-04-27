@@ -10,7 +10,7 @@ The inital version of code did not set the pnp device type to AP.  This can caus
 
 If you provide an incomplete AP Product ID (PID) e.g (C9120 instead of C9120-AXE-A), then the device is added a a "default" type of device to PnP DB.
 
-PnP process will try to discover the AP directly using SNMP, just like a normal device.
+PnP process will try to discover the AP directly using SNMP, just like a normal device, which will fail.
 
 The device type needs to be AP (or the PID a full match to the DNA Center PID DB).  The inital version of code would have resulted in the PnP process failing (even thought the AP was provisioned correctly, and associated to the WLC).
 
