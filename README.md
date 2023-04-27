@@ -6,7 +6,7 @@ It uses the new 2.2.3 API which allows an AP claim without a site assigment.
 Non-site based claim is important for use cases where DNA Center is not responsible for the configuration of the WLC
 
 ## Important Note.
-The inital version of code did not set the pnp device type to AP.  This can cause issues with the PnP process.
+The inital version of code did not set the pnp device type to AP.  This can cause issues with the PnP process if the PID is not a complete match.
 
 If you provide an incomplete AP Product ID (PID) e.g (C9120 instead of C9120-AXE-A), then the device is added a a "default" type of device to PnP DB.
 
