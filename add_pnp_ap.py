@@ -122,6 +122,7 @@ class NewDevice:
                 "sudiRequired": False,
                 "userSudiSerialNos": [],
                 "stack": False,
+                "deviceType": "AccessPoint",
                 "aaaCredentials": {
                     "username": "",
                     "password": ""
