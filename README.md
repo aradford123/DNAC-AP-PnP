@@ -5,6 +5,18 @@ It uses the new 2.2.3 API which allows an AP claim without a site assigment.
 
 Non-site based claim is important for use cases where DNA Center is not responsible for the configuration of the WLC
 
+## Important Note.
+The inital version of code did not set the pnp device type to AP.  This can cause issues with the PnP process.
+
+If you provide an incomplete AP Product ID (PID) e.g (C9120 instead of C9120-AXE-A), then the device is added a a "default" type of device to PnP DB.
+
+PnP process will try to discover the AP directly using SNMP, just like a normal device.
+
+The device type needs to be AP (or the PID a full match to the DNA Center PID DB).  The inital version of code would have resulted in the PnP process failing (even thought the AP was provisioned correctly, and associated to the WLC).
+
+The code now forces the type to be AP,  the AP will be discovered via the WLC it associates to and added to the inventory, irrespective of the PID.
+
+
 ## Getting stated
 First (optional) step, create a vitualenv. This makes it less likely to clash with other python libraries in future.
 Once the virtualenv is created, need to activate it.
