@@ -122,7 +122,12 @@ class NewDevice:
                 "sudiRequired": False,
                 "userSudiSerialNos": [],
                 "stack": False,
+                # hardwired to AP
                 "deviceType": "AccessPoint",
+
+                # test to see if this breaks
+                #"populateInventory" : True,
+                #"populateInventory" : False,
                 "aaaCredentials": {
                     "username": "",
                     "password": ""
@@ -135,6 +140,8 @@ class NewDevice:
         payload = {
             "deviceId": self.deviceid,
             "hostname" : self.name,
+            # trying the inventory hack
+            "populateInventory" : False,
             "configList": [
                 {
                     "configId": templateid,
@@ -233,7 +240,8 @@ def claim_devices(dnac, device_cache, template_cache):
 
         logger.info("payload for claim:{}".format(json.dumps(payload)))
         results = dnac.device_onboarding_pnp.claim_device( deviceClaimList=[payload],
-                                                      populateInventory=True, configId=payload['configList'][0]['configId'])
+                                                      #populateInventory=False, configId=payload['configList'][0]['configId'])
+                                                      configId=payload['configList'][0]['configId'])
         logger.info(results)
         if results.statusCode == 200:
             logger.info("all ok")
@@ -246,6 +254,7 @@ def main(dnac, filename):
     # modify this.
     # need to read input file. then batch up requests   Add/Claim in two steps.  The class should provide a method to crete the payload
     device_cache = get_devices(dnac, filename)
+    # get templates
     template_cache = validate_templates(dnac, device_cache)
     added = add_devices(dnac,device_cache)
     claimed = claim_devices(dnac, device_cache, template_cache)

@@ -16,6 +16,8 @@ The device type needs to be AP (or the PID a full match to the DNA Center PID DB
 
 The code now forces the type to be AP,  the AP will be discovered via the WLC it associates to and added to the inventory, irrespective of the PID.
 
+###June 2023:
+In 2.3.3.x, need to have populateInventory=False, otherwise DNAC will try to discover the AP via SNMP, which will fail
 
 ## Getting stated
 First (optional) step, create a vitualenv. This makes it less likely to clash with other python libraries in future.
